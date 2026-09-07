@@ -51,7 +51,7 @@ variable "rt-name" {
 variable "sg-name" {
   description = "Security Group for our Jumphost server"
   type = string
-  default = "project-sg"
+  default = "default"
 }
 
 
@@ -76,7 +76,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "EC2 keypair"
   type        = string
-  default     = "key"
+  default     = "default"
 }
 
 variable "instance_name" {
