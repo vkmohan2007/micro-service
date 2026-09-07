@@ -68,6 +68,8 @@ Navigate into the project:
 
 cd micro-service
 
+cd main_ec2
+
 Check files:
 
 ls
@@ -113,6 +115,20 @@ terraform plan
 Create the resources:
 
 terraform apply -auto-approve
+
+---------------------------------
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+
+resource "aws_s3_bucket" "bucket1" {
+  bucket = "s3-bucket-1-govind-${random_id.bucket_suffix.hex}"
+}
+
+resource "aws_s3_bucket" "bucket2" {
+  bucket = "s3-bucket-2-govind-${random_id.bucket_suffix.hex}"
+}
+---------------------------------
 
 
 ============================================================
