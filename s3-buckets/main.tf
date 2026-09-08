@@ -2,8 +2,12 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+
 resource "aws_s3_bucket" "bucket1" {
-  bucket = "s3-bucket-1-govind-kemla1"
+  bucket = "s3-bucket-1-vkm-${random_id.bucket_suffix.hex}"
 
   tags = {
     Name        = "s3-bucket"
@@ -19,7 +23,7 @@ resource "aws_s3_bucket_versioning" "bucket1_versioning" {
 }
 
 resource "aws_s3_bucket" "bucket2" {
-  bucket = "s3-bucket-2-govind-kemla1"
+  bucket = "s3-bucket-1-vkm-${random_id.bucket_suffix.hex}"
 
   tags = {
     Name        = "s3-bucket"
